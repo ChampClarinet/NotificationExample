@@ -17,11 +17,13 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private int id;
+    private int parsingNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        parsingNumber = 159;
     }
 
     public void onCreateButtonClick(View v){
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(context.ALARM_SERVICE);
 
         Intent serviceIntent = new Intent("android.media.action.DISPLAY_NOTIFICATION"); // this intent goes to AlarmReciever.onRecieve perameter
+
+        serviceIntent.putExtra("item", parsingNumber); // how to parse value to notification
 
         int notificationID = 100; // set id for identify which notification
 

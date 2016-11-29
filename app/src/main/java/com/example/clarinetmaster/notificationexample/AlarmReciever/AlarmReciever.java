@@ -17,6 +17,8 @@ public class AlarmReciever extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
 
+        int parsingNumber = intent.getExtras().getInt("item");
+
         Intent notificationIntent = new Intent(context, MainActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
         stackBuilder.addParentStack(MainActivity.class);
@@ -26,7 +28,7 @@ public class AlarmReciever extends BroadcastReceiver{
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 
         Notification notification = builder.setContentTitle("This is Title")
-                .setContentText("This is contentText")
+                .setContentText("parsing number is = "+parsingNumber)
                 .setTicker("This is Ticker")
                 .setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_VIBRATE | Notification.DEFAULT_SOUND)
