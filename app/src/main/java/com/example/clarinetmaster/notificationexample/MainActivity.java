@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     public void cancelNotification(Context context, int cancelNotificationID){
 
         /**
-         * cancelNotificationID MUST = notoficationID on create method
+         * cancelNotificationID MUST == notificationID on create method
          */
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
